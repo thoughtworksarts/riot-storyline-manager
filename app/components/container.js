@@ -13,6 +13,7 @@ export default class Container extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            mode: "installation",
             media: {
                 video: defaultValues.video,
                 audio: defaultValues.audio
@@ -154,9 +155,12 @@ export default class Container extends React.Component {
                                         &times;
                                     </Button>
                                 </div>
-                                <TimeRange name="intros" id={timeRangeId} range={[intros[timeRangeId].start,
-                                           intros[timeRangeId].end]} onChange={this.handleTimeRangeChange}
-                                            numFrames={this.props.numFrames}/>
+                                <TimeRange name="intros" id={timeRangeId}
+                                           range={[intros[timeRangeId].start,
+                                           intros[timeRangeId].end]}
+                                           onChange={this.handleTimeRangeChange}
+                                           numFrames={this.props.numFrames}
+                                />
                             </div>
                         )}
                     </div>
@@ -166,7 +170,7 @@ export default class Container extends React.Component {
                             <Level levelIndex={levelId} numLevels={this.props.numLevels}
                                    onChange={this.handleLevelChange}
                                    range={[levels[levelId].start, levels[levelId].end]}
-                                   branches={levels[levelId].branches}
+                                   branch={levels[levelId].branch}
                                    numFrames={this.props.numFrames}/>
                         )}
                     </div>
@@ -192,7 +196,6 @@ export default class Container extends React.Component {
                         )}
                     </div>
                 </Collapsible>
-                <branches/>
                 <Button onClick={this.handleExport} id="exportButton" name="export" className="btn-custom">Export</Button>
                 <span id="exportValidator" style={{display: this.state.displayValue, color: "red"}}>
                     &nbsp; fix your mistakesssss

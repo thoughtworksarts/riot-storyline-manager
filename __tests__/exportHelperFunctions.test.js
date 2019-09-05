@@ -75,19 +75,19 @@ describe('Arrayifiction',()=> {
 				level: 1,
 				start: "00:00.01",
 				end: "00:00.01",
-				branches: createDefaultBranchesObject()
+				branch: createDefaultBranchesObject()
 			},
 			{
 				level: 2,
 				start: "00:00.01",
 				end: "00:00.01",
-				branches: createDefaultBranchesObject()
+				branch: createDefaultBranchesObject()
 			},
 			{
 				level: 3,
 				start: "00:00.01",
 				end: "00:00.01",
-				branches: createDefaultBranchesObject()
+				branch: createDefaultBranchesObject()
 			},
 		];
 

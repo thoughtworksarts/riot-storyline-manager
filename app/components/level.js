@@ -16,7 +16,7 @@ export default class Level extends React.Component {
     }
 
     handleBranchChange(emotion, name, value) {
-        let branches = Object.assign({}, this.props.branches);
+        let branches = Object.assign({}, this.props.branch);
 
         if (name === "range") {
             branches[emotion].start = value[0];
@@ -26,12 +26,12 @@ export default class Level extends React.Component {
             branches[emotion][name] = value;
         }
 
-        this.props.onChange(this.props.levelIndex, "branches", branches);
+        this.props.onChange(this.props.levelIndex, "branch", branches);
     }
 
     render() {
         const levelIndex = this.props.levelIndex;
-        const branches = this.props.branches;
+        const branches = this.props.branch;
         const triggerName = "Level " + levelIndex;
 
         return (

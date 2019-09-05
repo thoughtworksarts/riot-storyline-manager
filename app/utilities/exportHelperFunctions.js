@@ -9,7 +9,7 @@ export const convertToMilliseconds = (value, numFrames) => {
     const milliseconds = ("000" + Math.ceil(frame*numMillisecondsPerFrame)).slice(-3);
 
     return valuesArray[0] + "." + milliseconds;
-}
+};
 
 export const traverseAndConvertToMilliseconds = (state, numFrames) => {
     if( typeof state == "object" ) {
@@ -17,34 +17,34 @@ export const traverseAndConvertToMilliseconds = (state, numFrames) => {
 
             delete state[key];
             state[key.toLowerCase()] = value;
-            
+
             if (key === "start" || key === "end") {
                 state[key] = convertToMilliseconds(value, numFrames);
             }
             traverseAndConvertToMilliseconds(value, numFrames);
         });
     }
-}
+};
 
 export const trimStateAndArrayify = (state) => {
     let levels = state.levels;
 
     Object.keys(levels).map( function(levelId,_) {
 
-        Object.keys(levels[levelId].branches).map( function(emotion,_) {
-            
-            if (!levels[levelId].branches[emotion].enabled) {
-                delete levels[levelId].branches[emotion];
+        Object.keys(levels[levelId].branch).map( function(emotion, _) {
+
+            if (!levels[levelId].branch[emotion].enabled) {
+                delete levels[levelId].branch[emotion];
             } else {
-                delete levels[levelId].branches[emotion].enabled;
+                delete levels[levelId].branch[emotion].enabled;
             }
         });
     });
     state.levels = arrayifyLevelsObject(levels);
     state.intros = arrayifySlidesObject(state.intros, "intro");
     state.credits = arrayifySlidesObject(state.credits, "credit");
-    delete state.displayvalue;
-}
+    delete state.displayValue;
+};
 
 export const arrayifyLevelsObject = (levels) => {
     let levelsArray = new Array(Object.keys(levels).length);
@@ -52,7 +52,7 @@ export const arrayifyLevelsObject = (levels) => {
         levelsArray[levelIndex-1] = levels[levelIndex];
     });
     return levelsArray;
-}
+};
 
 export const arrayifySlidesObject = (slides, slideType) => {
     const slideKeys = Object.keys(slides).sort();
@@ -66,9 +66,9 @@ export const arrayifySlidesObject = (slides, slideType) => {
         });
     }
     return slideArray;
-}
+};
 
 export const convertToMillisecondsAndTrimState = (state, numFrames) => {
     trimStateAndArrayify(state);
     traverseAndConvertToMilliseconds(state, numFrames);
-}
+};
