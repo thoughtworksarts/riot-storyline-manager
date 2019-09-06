@@ -1,0 +1,8 @@
+language: node_js
+
+notifications:
+  slack: thoughtworksarts:koNU6SlW5pDN8TRB5GyDSiaS
+
+cache:
+  npm: false
+
