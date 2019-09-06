@@ -1,0 +1,74 @@
+{
+  "mode": "installation",
+  "media": {
+    "video": "src/main/resources/video/blah.m4v",
+    "audio": "src/main/resources/audio/blah.wav"
+  },
+  "intros": [
+    {
+      "intro": 1,
+      "start": "00:00.001",
+      "end": "00:09.001"
+    }
+  ],
+  "credits": [
+    {
+      "credit": 1,
+      "start": "00:00.001",
+      "end": "00:05.001"
+    }
+  ],
+  "levels": [
+    {
+      "level": 1,
+      "start": "00:10.001",
+      "end": "00:12.001",
+      "branch": {
+        "anger": {
+          "start": "00:15.001",
+          "end": "00:18.001",
+          "outcome": 2
+        },
+        "calm": {
+          "start": "00:12.001",
+          "end": "00:14.001",
+          "outcome": 2
+        }
+      }
+    },
+    {
+      "level": 2,
+      "start": "00:19.001",
+      "end": "00:21.001",
+      "branch": {
+        "anger": {
+          "start": "00:27.001",
+          "end": "00:29.001",
+          "outcome": 3
+        },
+        "calm": {
+          "start": "00:22.001",
+          "end": "00:26.001",
+          "outcome": 3
+        }
+      }
+    },
+    {
+      "level": 3,
+      "start": "00:30.001",
+      "end": "00:35.001",
+      "branch": {
+        "anger": {
+          "start": "00:49.001",
+          "end": "00:53.001",
+          "outcome": 1
+        },
+        "calm": {
+          "start": "00:43.001",
+          "end": "00:48.001",
+          "outcome": 1
+        }
+      }
+    }
+  ]
+}

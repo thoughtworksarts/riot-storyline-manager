@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { isValidInput, endIsLaterThanStart } from '../utilities/validators.js';
+import { isRangeValid, isEndLaterThanStart } from '../utilities/validators.js';
 
 export default class TimeRange extends React.Component {
 	constructor(props, context) {
@@ -23,13 +23,13 @@ export default class TimeRange extends React.Component {
 	}
 
 	validateInput() {
-		return (isValidInput(this.props.range, this.props.numFrames))	? ({display: "none"})
+		return (isRangeValid(this.props.range, this.props.numFrames))	? ({display: "none"})
 																		: ({display: "inline", color:"red"});
 	}
 
 	validateEndAndStart() {
-		return (!isValidInput(this.props.range, this.props.numFrames)
-			|| endIsLaterThanStart(this.props.range))   ? ({display: "none"})
+		return (!isRangeValid(this.props.range, this.props.numFrames)
+			|| isEndLaterThanStart(this.props.range))   ? ({display: "none"})
 														: ({display: "inline", color:"red"});
 	}
 
