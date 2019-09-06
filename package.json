@@ -9,6 +9,11 @@
     "test": "jest",
     "prod": "webpack-dev-server --open --mode production"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
+  },
   "author": "Sriram Viswanathan",
   "license": "MIT",
   "babel": {
@@ -29,6 +34,7 @@
     "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
     "file-loader": "^1.1.11",
+    "husky": "^3.0.5",
     "jest": "^22.4.3",
     "react": "^16.2.0",
     "react-addons-test-utils": "^15.6.2",
